@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.routes = void 0;
+const express_1 = require("express");
+const AuthenticateController_1 = require("../controllers/AuthenticateController");
+const ListItemsController_1 = require("../controllers/ListItemsController");
+const UpdateItemController_1 = require("../controllers/UpdateItemController");
+const routes = (0, express_1.Router)();
+exports.routes = routes;
+routes.get("/items", new ListItemsController_1.ListItemsController().execute);
+routes.put("/item/:id", new UpdateItemController_1.UpdateItemController().execute);
+routes.post("/authenticate", new AuthenticateController_1.AuthenticateController().execute);
