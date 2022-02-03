@@ -21,7 +21,7 @@ export function authMiddlewere(request: Request, response: Response, next: NextF
     return response.status(401).json({ error: "Token malformatted" });
   }
 
-  jwt.verify(token, authConfig.secret, (error, decoded) => {
+  jwt.verify(token, authConfig.secret, (error: any, decoded: any) => {
     if (error) {
       return response.status(401).json({ error: "Token invalid" });
     }
